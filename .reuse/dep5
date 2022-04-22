@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: chimed
+Upstream-Contact: Maciej Delmanowski <drybjed@gmail.com>
+Source: https://github.com/drybjed/chimed
+
+Files: README.md
+Copyright: 2022, Maciej Delmanowski <drybjed@gmail.com>
+License: GPL-3.0-or-later

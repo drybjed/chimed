@@ -6,3 +6,7 @@ Source: https://github.com/drybjed/chimed
 Files: README.md
 Copyright: 2022, Maciej Delmanowski <drybjed@gmail.com>
 License: GPL-3.0-or-later
+
+Files: src/chimed/_data/audio/richcraft-chime-4.wav
+Copyright: 2018, Barbara Rich <https://richcraftstudios.com/>
+License: CC-BY-3.0

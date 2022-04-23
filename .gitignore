@@ -1,0 +1,34 @@
+# Copyright (C) 2022 Maciej Delmanowski <drybjed@gmail.com>
+# SPDX-License-Identifier: CC0-1.0
+
+# The project-wide .gitignore file
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+chimed.egg-info/
+dist/
+build/
+src/chimed/__version__.py
+VERSION
+
+# Sphinx documentation
+docs/_build/
+
+# nose2
+.coverage
+
+### Vim ###
+# swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+# session
+Session.vim
+# temporary
+.netrwhist
+# auto-generated tag files
+tags

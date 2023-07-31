@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
+import chimed
 import atexit
 import shutil
 import sys
@@ -20,6 +21,13 @@ def main():
 
     os.mkdir(os.path.dirname(comm_fifo))
     os.mkfifo(comm_fifo)
+
+    chime = chimed.Chime('chime1', resource='richcraft-chime-4.wav')
+
+    while True:
+        with open(comm_fifo, 'r') as fifo:
+            for line in fifo:
+                chime.play()
 
 atexit.register(cleanup)
 

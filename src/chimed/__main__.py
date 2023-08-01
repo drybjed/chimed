@@ -22,7 +22,7 @@ def main():
     os.mkdir(os.path.dirname(comm_fifo))
     os.mkfifo(comm_fifo)
 
-    chime = chimed.Chime('chime1', resource='richcraft-chime-4.wav')
+    chime = chimed.Bell('chime1', resource='richcraft-chime-4.wav')
 
     while True:
         with open(comm_fifo, 'r') as fifo:

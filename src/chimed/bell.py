@@ -10,7 +10,7 @@ import os
 import io
 
 
-class Chime(object):
+class Bell(object):
 
     def __init__(self, name, filename='', resource='', *args, **kwargs):
 

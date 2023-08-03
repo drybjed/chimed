@@ -28,6 +28,8 @@ def main():
         with open(comm_fifo, 'r') as fifo:
             for line in fifo:
                 chime.play()
+    args = sys.argv
+    interpreter = chimed.Interpreter(args)
 
 atexit.register(cleanup)
 

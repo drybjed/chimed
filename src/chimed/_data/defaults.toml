@@ -1,0 +1,9 @@
+# Copyright (C) 2023 Maciej Delmanowski <drybjed@gmail.com>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# This file contains the default chimed configuration options. It will be
+# parsed by Jinja template engine before being passed over to the Python's
+# TOML parser. The 'env' dictionary contains the environment variables.
+
+[bells.chime-4]
+resource = "richcraft-chime-4.wav"

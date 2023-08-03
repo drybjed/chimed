@@ -15,3 +15,6 @@ This software includes sounds from [freesound.org](https://freesound.org/):
 - ["richcraft chime 4"](https://freesound.org/people/richcraftstudios/sounds/454610/) by
   [richcraftstudios](https://freesound.org/people/richcraftstudios/), licensed
   under CCBY 3.0.
+
+- ["Typewriter ding_near_mono"](https://freesound.org/people/_stubb/sounds/406243/) by
+  [_stubb](https://freesound.org/people/_stubb/), licensed under CC0.

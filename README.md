@@ -4,9 +4,51 @@ The `chimed` daemon is an equivalent of a wind chime in a Linux system. It
 provides a way for other programs to create various sounds with simple
 interfaces - interrupt signals, UDP or TCP packets, UNIX sockets.
 
+## Installation
+
+The `chimed` installation requires `libasound2` development files, needed to
+build the `simpleaudio` Python module.
+
+    sudo apt install libasound2-dev
+
+You can install `chimed` from source in editable mode, if you want to work on it:
+
+    git clone https://github.com/drybjed/chimed ~/src/github.com/drybjed/chimed
+    pipx install --editable ~/src/github.com/drybjed/chimed
+
+You can also install `chimed` from PyPI:
+
+    pipx install chimed
+
+## Usage
+
+After installation, run the daemon in a terminal window:
+
+    chimed serve
+
+You can send commands to it using a FIFO file:
+
+    # Play a bell sound
+    echo "chime" >> $XDG_RUNTIME_DIR/chimed/fifo
+
+The default installation includes a set of chimes and a corresponding
+configuration for `vim` editor. You can check the `lib/vim/vimrc` file in the
+repository to see an example configuration you need to include in your
+`~/.vimrc` configuration to integrate with `chimed`. There's also an example
+`systemd` unit file available, to run `chimed` as an user daemon.
+
+The internal configuration can be viewed using:
+
+    chimed config get
+
+You can put YAML, TOML and JSON files in the `~/.config/chimed/conf.d/`
+directory to add or modify configuration options. Currently there's not much
+configuration to be done, a lot of things need to be implemented, so stay
+tuned.
+
 ## Copyright
 
-Copyright (C) 2022 Maciej Delmanowski <drybjed@gmail.com>
+Copyright (C) 2022-2024 Maciej Delmanowski <drybjed@gmail.com>
 
 ## Attribution
 

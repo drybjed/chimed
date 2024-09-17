@@ -58,10 +58,21 @@ class Bell(object):
 
     def play(self):
         if self.type == 'resource':
-            self._play_obj = simpleaudio.play_buffer(self._audio_data, num_channels=1,
-                                                     bytes_per_sample=2,
-                                                     sample_rate=self._sample_rate)
+            try:
+                self._play_obj = simpleaudio.play_buffer(self._audio_data, num_channels=1,
+                                                         bytes_per_sample=2,
+                                                         sample_rate=self._sample_rate)
+                if self.kwargs.get('wait', False):
+                    self._play_obj.wait_done()
+            except Exception:  # Better exception?
+                # Catch "Too many open files" error and handle it gracefully
+                # This happens when chimes are played too rapidly for the
+                # system to handle
+                # FIXME: "ALSA lib pcm.c:8570:(snd_pcm_recover) underrun occurred"
+                # This still spams the stderr, not sure how to avoid it from inside
+                # Python.
+                pass
         elif self.type == 'file':
             self._play_obj = self._wav_data.play()
-        if self.kwargs.get('wait', False):
-            self._play_obj.wait_done()
+            if self.kwargs.get('wait', False):
+                self._play_obj.wait_done()

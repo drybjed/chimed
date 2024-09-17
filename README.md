@@ -33,3 +33,6 @@ This software includes sounds from [freesound.org](https://freesound.org/):
 
 - ["Swish 01"](https://freesound.org/people/PaulMorek/sounds/330066/) by
   [PaulMorek](https://freesound.org/people/PaulMorek/), licensed under CC0.
+
+- ["e key"](https://freesound.org/people/uEffects/sounds/180998/) by
+  [uEffects](https://freesound.org/people/uEffects/), licensed under CC0.

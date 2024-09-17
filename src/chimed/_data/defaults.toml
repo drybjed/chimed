@@ -5,5 +5,72 @@
 # parsed by Jinja template engine before being passed over to the Python's
 # TOML parser. The 'env' dictionary contains the environment variables.
 
-[bells.chime-4]
+[bells.chime1]
+resource = "ueffects-e-key.wav"
+
+[bells.chime2]
+resource = "ueffects-l-key.wav"
+
+[bells.chime3]
+resource = "ueffects-s-key.wav"
+
+[bells.chime4]
 resource = "richcraft-chime-4.wav"
+
+[bells.chime5]
+resource = "stubb-typewriter-ding.wav"
+
+[bells.chime6]
+resource = "paulmorek-click-02-double.wav"
+
+[bells.chime7]
+resource = "paulmorek-click-02-single.wav"
+
+[bells.chime8]
+resource = "paulmorek-beep-04-positive.wav"
+
+[bells.chime9]
+resource = "paulmorek-beep-03-single.wav"
+
+[bells.chime10]
+resource = "paulmorek-swish-01.wav"
+
+[[inputs]]
+string = "BufWritePost"
+output = "chime5"
+
+[[inputs]]
+string = "InsertEnter"
+output = "chime6"
+
+[[inputs]]
+string = "InsertLeave"
+output = "chime7"
+
+[[inputs]]
+string = "CmdlineEnter"
+output = "chime8"
+
+[[inputs]]
+string = "CmdlineLeave"
+output = "chime9"
+
+[[inputs]]
+string = "TextYankPost"
+output = "chime10"
+
+[[inputs]]
+string = "TextChangedI"
+output = "chime3"
+
+[[inputs]]
+string = "TextChanged"
+output = "chime1"
+
+[[inputs]]
+string = "CursorMoved"
+output = "chime2"
+
+[[inputs]]
+string = "chime"
+output = "chime4"

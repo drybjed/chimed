@@ -27,12 +27,18 @@ class Daemon(object):
 
         atexit.register(self.cleanup)
 
-        self.chime = Bell('chime1', resource='richcraft-chime-4.wav')
+        self.bells = {}
+
+        for key, value in self._config.get('bells').items():
+            self.bells[key] = Bell(key, resource=value['resource'])
 
         while True:
             with open(self._fifo_bell, 'r') as fifo:
                 for line in fifo:
-                    self.chime.play()
+                    line = line.strip()
+                    for element in self._config.get('inputs'):
+                        if line == element['string']:
+                            self.bells[element['output']].play()
 
     def cleanup(self):
         shutil.rmtree(os.path.dirname(self._fifo_bell))

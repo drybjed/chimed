@@ -18,3 +18,6 @@ This software includes sounds from [freesound.org](https://freesound.org/):
 
 - ["Typewriter ding_near_mono"](https://freesound.org/people/_stubb/sounds/406243/) by
   [_stubb](https://freesound.org/people/_stubb/), licensed under CC0.
+
+- ["Beep 03 Single"](https://freesound.org/people/PaulMorek/sounds/330050/) by
+  [PaulMorek](https://freesound.org/people/PaulMorek/), licensed under CC0.

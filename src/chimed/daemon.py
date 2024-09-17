@@ -17,7 +17,12 @@ class Daemon(object):
         self._config = config
         self._fifo_bell = os.path.join(xdg.xdg_runtime_dir(), 'chimed', 'fifo')
 
-        os.mkdir(os.path.dirname(self._fifo_bell))
+        try:
+            os.mkdir(os.path.dirname(self._fifo_bell))
+        except FileExistsError:
+            print('Another copy of chimed is running already. Exiting.')
+            sys.exit(1)
+
         os.mkfifo(self._fifo_bell)
 
         atexit.register(self.cleanup)

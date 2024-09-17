@@ -15,7 +15,7 @@ class Daemon(object):
 
         self._args = args
         self._config = config
-        self._fifo_bell = os.path.join(xdg.xdg_runtime_dir(), 'chimed', 'fifo')
+        self._fifo_bell = os.path.join(xdg.BaseDirectory.get_runtime_dir(), 'chimed', 'fifo')
 
         try:
             os.mkdir(os.path.dirname(self._fifo_bell))

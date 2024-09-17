@@ -92,7 +92,7 @@ else:
     print('Warning: manual pages not built')
 
 setup(
-    install_requires=[],
+    install_requires=['python-dotenv', 'jinja2', 'pyyaml', 'pyxdg', 'toml', 'simpleaudio', 'soundfile', 'numpy'],
     package_dir={'': 'src'},
     packages=find_packages('src', exclude=('tests', 'docs')),
     data_files=[

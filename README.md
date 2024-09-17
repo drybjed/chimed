@@ -30,3 +30,6 @@ This software includes sounds from [freesound.org](https://freesound.org/):
 
 - ["Click 02 Single"](https://freesound.org/people/PaulMorek/sounds/330075/) by
   [PaulMorek](https://freesound.org/people/PaulMorek/), licensed under CC0.
+
+- ["Swish 01"](https://freesound.org/people/PaulMorek/sounds/330066/) by
+  [PaulMorek](https://freesound.org/people/PaulMorek/), licensed under CC0.

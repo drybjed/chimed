@@ -21,3 +21,6 @@ This software includes sounds from [freesound.org](https://freesound.org/):
 
 - ["Beep 03 Single"](https://freesound.org/people/PaulMorek/sounds/330050/) by
   [PaulMorek](https://freesound.org/people/PaulMorek/), licensed under CC0.
+
+- ["Beep 04 Positive"](https://freesound.org/people/PaulMorek/sounds/330048/) by
+  [PaulMorek](https://freesound.org/people/PaulMorek/), licensed under CC0.

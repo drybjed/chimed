@@ -33,3 +33,6 @@ class Interpreter(object):
                                        keys=args.keys)
         else:
             self.config.config_get('.', format=args.format, keys=args.keys)
+
+    def do_config_list(self, args):
+        self.config.config_list()

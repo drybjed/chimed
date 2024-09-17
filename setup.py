@@ -129,7 +129,7 @@ setup(
     download_url='https://github.com/drybjed/chimed'
                  '/archive/v' + unicode(RELEASE) + '.tar.gz',
     classifiers=[
-                'Development Status :: 1 - Alpha',
+                'Development Status :: 3 - Alpha',
                 'Environment :: Console',
                 'Environment :: No Input/Output (Daemon)',
                 'Intended Audience :: End Users/Desktop',
@@ -145,7 +145,7 @@ setup(
                 'Programming Language :: Python :: 3.7',
                 'Programming Language :: Python :: 3.8',
                 'Programming Language :: Python :: 3.9',
-                'Topic :: Multimedia :: Sound/Audio'
+                'Topic :: Multimedia :: Sound/Audio',
                 'Topic :: Utilities'
     ]
 )

@@ -1,0 +1,14 @@
+" Copyright (C) 2024 Maciej Delmanowski <drybjed@gmail.com>
+" SPDX-License-Identifier: GPL-3.0-or-later
+
+" Example configuration to put in ~/.vimrc to integrate with chimed
+
+autocmd BufWritePost * silent exec "![ -p $XDG_RUNTIME_DIR/chimed/fifo ] && echo 'BufWritePost' >>| $XDG_RUNTIME_DIR/chimed/fifo || true"
+autocmd InsertEnter  * silent exec "![ -p $XDG_RUNTIME_DIR/chimed/fifo ] && echo 'InsertEnter'  >>| $XDG_RUNTIME_DIR/chimed/fifo || true"
+autocmd TextChanged  * silent exec "![ -p $XDG_RUNTIME_DIR/chimed/fifo ] && echo 'TextChanged'  >>| $XDG_RUNTIME_DIR/chimed/fifo || true"
+autocmd TextChangedI * silent exec "![ -p $XDG_RUNTIME_DIR/chimed/fifo ] && echo 'TextChangedI' >>| $XDG_RUNTIME_DIR/chimed/fifo || true"
+autocmd CursorMoved  * silent exec "![ -p $XDG_RUNTIME_DIR/chimed/fifo ] && echo 'CursorMoved'  >>| $XDG_RUNTIME_DIR/chimed/fifo || true"
+autocmd InsertLeave  * silent exec "![ -p $XDG_RUNTIME_DIR/chimed/fifo ] && echo 'InsertLeave'  >>| $XDG_RUNTIME_DIR/chimed/fifo || true"
+autocmd TextYankPost * silent exec "![ -p $XDG_RUNTIME_DIR/chimed/fifo ] && echo 'TextYankPost' >>| $XDG_RUNTIME_DIR/chimed/fifo || true"
+autocmd CmdlineEnter * silent exec "![ -p $XDG_RUNTIME_DIR/chimed/fifo ] && echo 'CmdlineEnter' >>| $XDG_RUNTIME_DIR/chimed/fifo || true"
+autocmd CmdlineLeave * silent exec "![ -p $XDG_RUNTIME_DIR/chimed/fifo ] && echo 'CmdlineLeave' >>| $XDG_RUNTIME_DIR/chimed/fifo || true"

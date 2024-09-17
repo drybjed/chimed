@@ -36,3 +36,6 @@ This software includes sounds from [freesound.org](https://freesound.org/):
 
 - ["e key"](https://freesound.org/people/uEffects/sounds/180998/) by
   [uEffects](https://freesound.org/people/uEffects/), licensed under CC0.
+
+- ["l key"](https://freesound.org/people/uEffects/sounds/181003/) by
+  [uEffects](https://freesound.org/people/uEffects/), licensed under CC0.

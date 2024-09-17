@@ -33,12 +33,15 @@ class Daemon(object):
             self.bells[key] = Bell(key, resource=value['resource'])
 
         while True:
-            with open(self._fifo_bell, 'r') as fifo:
-                for line in fifo:
-                    line = line.strip()
-                    for element in self._config.get('inputs'):
-                        if line == element['string']:
-                            self.bells[element['output']].play()
+            try:
+                with open(self._fifo_bell, 'r') as fifo:
+                    for line in fifo:
+                        line = line.strip()
+                        for element in self._config.get('inputs'):
+                            if line == element['string']:
+                                self.bells[element['output']].play()
+            except KeyboardInterrupt:
+                sys.exit()
 
     def cleanup(self):
         shutil.rmtree(os.path.dirname(self._fifo_bell))

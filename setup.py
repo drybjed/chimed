@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2022 Maciej Delmanowski <drybjed@gmail.com>
+# Copyright (C) 2022-2024 Maciej Delmanowski <drybjed@gmail.com>
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 # Installation in development mode:
-#   pip3 install --user --editable .
+#   pipx install --editable .
 
 from setuptools import setup, find_packages
 import subprocess
@@ -131,6 +131,8 @@ setup(
     classifiers=[
                 'Development Status :: 1 - Alpha',
                 'Environment :: Console',
+                'Environment :: No Input/Output (Daemon)',
+                'Intended Audience :: End Users/Desktop',
                 'Intended Audience :: Information Technology',
                 'License :: OSI Approved :: GNU General Public License v3 '
                 'or later (GPLv3+)',
@@ -143,6 +145,7 @@ setup(
                 'Programming Language :: Python :: 3.7',
                 'Programming Language :: Python :: 3.8',
                 'Programming Language :: Python :: 3.9',
+                'Topic :: Multimedia :: Sound/Audio'
                 'Topic :: Utilities'
     ]
 )

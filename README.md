@@ -24,3 +24,6 @@ This software includes sounds from [freesound.org](https://freesound.org/):
 
 - ["Beep 04 Positive"](https://freesound.org/people/PaulMorek/sounds/330048/) by
   [PaulMorek](https://freesound.org/people/PaulMorek/), licensed under CC0.
+
+- ["Click 02 Double"](https://freesound.org/people/PaulMorek/sounds/330076/) by
+  [PaulMorek](https://freesound.org/people/PaulMorek/), licensed under CC0.

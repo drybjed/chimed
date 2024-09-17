@@ -1,4 +1,4 @@
-# Copyright (C) 2023 Maciej Delmanowski <drybjed@gmail.com>
+# Copyright (C) 2023-2024 Maciej Delmanowski <drybjed@gmail.com>
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 # ~/.config/systemd/user/chimed.service
@@ -9,8 +9,7 @@ After=network.target network-online.target
 
 [Service]
 Type=simple
-Restart=always
-ExecStart=/usr/bin/python3 %h/.local/bin/chimed
+ExecStart=%h/.local/bin/chimed serve
 KillSignal=SIGINT
 TimeoutStopSec=3
 

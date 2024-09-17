@@ -1,4 +1,4 @@
-# chimed - wind chines in your UNIX environments
+# chimed - wind chimes in your UNIX environments
 
 The `chimed` daemon is an equivalent of a wind chime in a Linux system. It
 provides a way for other programs to create various sounds with simple

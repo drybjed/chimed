@@ -83,7 +83,7 @@ Commands:
 
     def do_config_list(self):
         parser = argparse.ArgumentParser(
-                usage='chimed config list [<args>] <project_dir>',
+                usage='chimed config list [<args>]',
                 description='list configuration files parsed by chimed')
         parser.add_argument('-v', '--verbose', action="count",
                             help='increase output verbosity '

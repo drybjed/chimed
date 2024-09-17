@@ -36,13 +36,14 @@ class Configuration(object):
         # Instantiate chimed configuration
         self._config = {}
 
-        if not self._args.no_defaults:
-            # Load the default configuration options defined by chimed
-            self._config_template = jinja2.Template(
-                    pkgutil.get_data('chimed',
-                                     os.path.join('_data', 'defaults.toml'))
-                    .decode('utf-8'), trim_blocks=True)
-            self._config = toml.loads(self._config_template.render(env=os.environ))
+        if hasattr(self._args, 'no_defaults'):
+            if not self._args.no_defaults:
+                # Load the default configuration options defined by chimed
+                self._config_template = jinja2.Template(
+                        pkgutil.get_data('chimed',
+                                         os.path.join('_data', 'defaults.toml'))
+                        .decode('utf-8'), trim_blocks=True)
+                self._config = toml.loads(self._config_template.render(env=os.environ))
 
         # Load configuration files in known directories
         self._config_dirs = [

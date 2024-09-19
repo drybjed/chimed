@@ -34,13 +34,7 @@ def find_files(directory, strip):
     return result
 
 
-try:
-    import pypandoc
-    README = pypandoc.convert_file('README.md', 'rst')
-except(IOError, ImportError):
-    print('Warning: The "pandoc" support is required to convert '
-          'the README.md to reStructuredText format')
-    README = open('README.md').read()
+README = open('README.md').read()
 
 try:
     unicode
@@ -118,6 +112,7 @@ setup(
     version=unicode(RELEASE),
     description='Wind chime for your UNIX environment',
     long_description=README,
+    long_description_content_type='text/markdown',
     author='Maciej Delmanowski',
     author_email='drybjed@gmail.com',
     url='https://github.com/drybjed/chimed',

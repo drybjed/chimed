@@ -11,7 +11,6 @@ import collections.abc
 import toml
 import json
 import yaml
-from distutils.util import strtobool
 from xdg.BaseDirectory import xdg_config_home
 try:
     import configparser

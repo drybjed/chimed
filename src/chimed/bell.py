@@ -26,16 +26,16 @@ class Bell(object):
                 # Load the wav file using pkgutil.get_data
                 self._wav_data = pkgutil.get_data('chimed', self._resource_path)
 
-                # Use soundfile to read the wav data
+                # Use soundfile to read the wav data as int16
                 self._audio_data, self._sample_rate = soundfile.read(
-                        io.BytesIO(self._wav_data))
-
-                # Convert audio_data to int16 (required by simpleaudio)
-                self._audio_data = (self._audio_data * 32767).astype(numpy.int16)
+                        io.BytesIO(self._wav_data), dtype='int16')
 
                 # Check the number of channels and convert to mono if necessary
                 if len(self._audio_data.shape) > 1 and self._audio_data.shape[1] > 1:
-                    self._audio_data = numpy.mean(self._audio_data, axis=1)
+                    self._audio_data = numpy.mean(self._audio_data, axis=1).astype(numpy.int16)
+
+                # Free the raw WAV bytes — not needed after decoding
+                self._wav_data = None
 
             except FileNotFoundError:
                 print(f"Error: {self._resource_path} not found in package 'chimed'.")
@@ -57,6 +57,9 @@ class Bell(object):
                 raise Exception
 
     def play(self):
+        # Skip if previous playback for this bell is still active
+        if hasattr(self, '_play_obj') and self._play_obj and self._play_obj.is_playing():
+            return
         if self.type == 'resource':
             try:
                 self._play_obj = simpleaudio.play_buffer(self._audio_data, num_channels=1,

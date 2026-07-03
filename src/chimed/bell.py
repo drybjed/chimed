@@ -57,6 +57,9 @@ class Bell(object):
                 raise Exception
 
     def play(self):
+        # Skip if previous playback for this bell is still active
+        if hasattr(self, '_play_obj') and self._play_obj and self._play_obj.is_playing():
+            return
         if self.type == 'resource':
             try:
                 self._play_obj = simpleaudio.play_buffer(self._audio_data, num_channels=1,

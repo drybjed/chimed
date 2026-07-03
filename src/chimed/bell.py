@@ -37,6 +37,9 @@ class Bell(object):
                 if len(self._audio_data.shape) > 1 and self._audio_data.shape[1] > 1:
                     self._audio_data = numpy.mean(self._audio_data, axis=1)
 
+                # Free the raw WAV bytes — not needed after decoding
+                self._wav_data = None
+
             except FileNotFoundError:
                 print(f"Error: {self._resource_path} not found in package 'chimed'.")
                 raise FileNotFoundError

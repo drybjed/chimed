@@ -8,6 +8,7 @@ import pkgutil
 import numpy
 import os
 import io
+import time
 
 
 class Bell(object):
@@ -17,6 +18,8 @@ class Bell(object):
         self.name = name
         self.args = args
         self.kwargs = kwargs
+        self._last_play_time = 0
+        self._min_interval = self.kwargs.get('min_interval', 0.08)
 
         if resource:
             self.type = 'resource'
@@ -57,9 +60,10 @@ class Bell(object):
                 raise Exception
 
     def play(self):
-        # Skip if previous playback for this bell is still active
-        if hasattr(self, '_play_obj') and self._play_obj and self._play_obj.is_playing():
+        now = time.monotonic()
+        if now - self._last_play_time < self._min_interval:
             return
+        self._last_play_time = now
         if self.type == 'resource':
             try:
                 self._play_obj = simpleaudio.play_buffer(self._audio_data, num_channels=1,

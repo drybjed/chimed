@@ -26,16 +26,13 @@ class Bell(object):
                 # Load the wav file using pkgutil.get_data
                 self._wav_data = pkgutil.get_data('chimed', self._resource_path)
 
-                # Use soundfile to read the wav data
+                # Use soundfile to read the wav data as int16
                 self._audio_data, self._sample_rate = soundfile.read(
-                        io.BytesIO(self._wav_data))
-
-                # Convert audio_data to int16 (required by simpleaudio)
-                self._audio_data = (self._audio_data * 32767).astype(numpy.int16)
+                        io.BytesIO(self._wav_data), dtype='int16')
 
                 # Check the number of channels and convert to mono if necessary
                 if len(self._audio_data.shape) > 1 and self._audio_data.shape[1] > 1:
-                    self._audio_data = numpy.mean(self._audio_data, axis=1)
+                    self._audio_data = numpy.mean(self._audio_data, axis=1).astype(numpy.int16)
 
                 # Free the raw WAV bytes — not needed after decoding
                 self._wav_data = None

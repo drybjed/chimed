@@ -42,9 +42,15 @@ The internal configuration can be viewed using:
     chimed config get
 
 You can put YAML, TOML and JSON files in the `~/.config/chimed/conf.d/`
-directory to add or modify configuration options. Currently there's not much
-configuration to be done, a lot of things need to be implemented, so stay
-tuned.
+directory to add or modify configuration options. See
+[`lib/example-config.toml`](lib/example-config.toml) for a starting point.
+
+### Bell options
+
+| Key | Default | Description |
+|-----|---------|-------------|
+| `resource` | — | WAV file from the bundled package (see `chimed config get bells`) |
+| `min_interval` | `0.08` | Minimum seconds between successive plays of this bell — controls the rate limit (lower = more responsive, higher = gentler on resources) |
 
 ## Copyright
 

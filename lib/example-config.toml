@@ -1,0 +1,35 @@
+# Copyright (C) 2026 Maciej Delmanowski <drybjed@gmail.com>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Example chimed configuration — place in ~/.config/chimed/conf.d/
+# to override defaults.  TOML, YAML, and JSON are all supported.
+
+
+# === Bell definitions ===
+#
+# Each bell has a name and a resource (WAV file from the bundled package).
+# You can also add custom bells using the 'filename' key (not shown here).
+# Configuration files in conf.d/ are merged with the defaults; you only
+# need to specify the values you want to override.
+
+[bells.chime2]
+resource = "ueffects-l-key.wav"
+min_interval = 0.04
+
+[bells.custom-bell]
+resource = "richcraft-chime-4.wav"
+min_interval = 0.1
+
+
+# === Input-to-bell mappings ===
+#
+# Each input matches a string written to the FIFO and maps it to a bell.
+# Multiple inputs can map to the same bell.
+
+[[inputs]]
+string = "CustomEvent"
+output = "custom-bell"
+
+[[inputs]]
+string = "BufWritePre"
+output = "chime4"

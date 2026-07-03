@@ -3,6 +3,7 @@
 
 from .bell import Bell
 import atexit
+import errno
 import shutil
 import sys
 import xdg
@@ -16,12 +17,27 @@ class Daemon(object):
         self._args = args
         self._config = config
         self._fifo_bell = os.path.join(xdg.BaseDirectory.get_runtime_dir(), 'chimed', 'fifo')
+        self._fifo_dir = os.path.dirname(self._fifo_bell)
 
         try:
-            os.mkdir(os.path.dirname(self._fifo_bell))
+            os.mkdir(self._fifo_dir)
         except FileExistsError:
-            print('Another copy of chimed is running already. Exiting.')
-            sys.exit(1)
+            if os.path.exists(self._fifo_bell):
+                try:
+                    fd = os.open(self._fifo_bell, os.O_WRONLY | os.O_NONBLOCK)
+                    os.close(fd)
+                except OSError as exc:
+                    if exc.errno == errno.ENXIO:
+                        shutil.rmtree(self._fifo_dir)
+                        os.mkdir(self._fifo_dir)
+                    else:
+                        raise
+                else:
+                    print('Another copy of chimed is running already. Exiting.')
+                    sys.exit(1)
+            else:
+                shutil.rmtree(self._fifo_dir)
+                os.mkdir(self._fifo_dir)
 
         os.mkfifo(self._fifo_bell)
 
@@ -44,4 +60,4 @@ class Daemon(object):
                 sys.exit()
 
     def cleanup(self):
-        shutil.rmtree(os.path.dirname(self._fifo_bell))
+        shutil.rmtree(self._fifo_dir)
